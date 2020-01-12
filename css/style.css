@@ -1,0 +1,47 @@
+/* Default DevCorner Style Setting */
+
+/* Fonts */
+@font-face {
+    font-family: 'retro_computer_personal_use'; /*a name to be used later*/
+    src: url('../font/retro_computer_personal_use.ttf'); /*URL to font*/
+}
+
+:root{
+  --dc-: #28a745; /* #28a745 */
+  --rgba-dc-: rgba(40, 167, 69, 0.5);
+  --rgba-wh-: rgba(255, 255, 255, 0.5);
+  --gr-: #515151;
+  --gr2-: #777;
+  --wh-: #fefefe;
+  --sg-: #f7f7f7;
+  --dw-: #ebe9ea;
+  --lg-: #b9b9b9;
+  --shadow1-: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  --shadow2-: 0 0 8px rgba(0,0,0,0.6);
+  --shadow3-: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+  --text-sh-: 2px 5px 2px rgba(33,33,33,0.25);
+  --card-: perspective(1000px) rotateY(-20deg) translateX(-20px);
+}
+
+/* This will help a bit with the layered box with different padding,margin or even border */
+*, *::before, *::after{box-sizing: border-box;}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
+}
+body{
+  overflow-y: scroll;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+/* END */
