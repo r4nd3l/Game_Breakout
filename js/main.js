@@ -12,6 +12,8 @@ cvs.style.border = "1px solid #0ff";
 const PADDLE_WIDTH = 100;
 const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
+let leftArrow = false;
+let rightArrow = false;
 
 // create the paddle
 const paddle = {
@@ -31,4 +33,76 @@ function drawPaddle(){
   ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
 }
 
-drawPaddle();
+// controll the paddle
+document.addEventListener("keydown", function(event){
+  if(event.keyCode == 37){
+    leftArrow = true;
+  }else if(event.keyCode == 39){
+    rightArrow = true;
+  }
+});
+document.addEventListener("keyup", function(event){
+  if(event.keyCode == 37){
+    leftArrow = false;
+  }else if(event.keyCode == 39){
+    rightArrow = false;
+  }
+});
+
+// move paddle
+function movePaddle(){
+  if(rightArrow){
+    paddle.x += paddle.dx;
+  }else if(leftArrow){
+    paddle.x -= paddle.dx;
+  }
+}
+
+// draw function
+function draw(){
+  drawPaddle();
+}
+
+// update game function
+function update(){
+  movePaddle();
+}
+
+// game loop
+function loop(){
+  // clear the canvas
+  ctx.drawImage(BG_IMG, 0, 0);
+
+  draw();
+
+  update();
+
+  requestAnimationFrame(loop);
+}
+loop();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// END
