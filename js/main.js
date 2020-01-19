@@ -12,6 +12,7 @@ cvs.style.border = "1px solid #0ff";
 const PADDLE_WIDTH = 100;
 const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
+const BALL_RADIUS = 8;
 let leftArrow = false;
 let rightArrow = false;
 
@@ -22,6 +23,36 @@ const paddle = {
   width : PADDLE_WIDTH,
   height : PADDLE_HEIGHT,
   dx : 5
+}
+
+// create the ball
+const ball = {
+  x : cvs.width/2,
+  y : paddle.y - BALL_RADIUS,
+  radius : BALL_RADIUS,
+  speed : 4,
+  dx : 3,
+  dy : -3
+}
+
+// draw the ball
+function drawBall(){
+  ctx.beginPath();
+
+  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2);
+  ctx.fillStyle = "#ffcd05";
+  ctx.fill();
+
+  ctx.strokeStyle = "#2e3548";
+  ctx.stroke();
+
+  ctx.closePath();
+}
+
+// move the ball
+function moveBall(){
+  ball.x += ball.dx;
+  ball.y += ball.dy;
 }
 
 // draw paddle
@@ -51,21 +82,30 @@ document.addEventListener("keyup", function(event){
 
 // move paddle
 function movePaddle(){
-  if(rightArrow){
+  if(rightArrow && paddle.x + paddle.width < cvs.width){
     paddle.x += paddle.dx;
-  }else if(leftArrow){
+  }else if(leftArrow && paddle.x > 0){
     paddle.x -= paddle.dx;
+  }
+}
+// ball and wall collision detection
+function ballWallCollision(){
+  if(ball.x + ball.radius > cvs.width){
+    ball.dx = - ball.dx;
   }
 }
 
 // draw function
 function draw(){
   drawPaddle();
+  drawBall();
 }
 
 // update game function
 function update(){
   movePaddle();
+  moveBall();
+  ballWallCollision();
 }
 
 // game loop
