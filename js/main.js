@@ -32,7 +32,7 @@ const ball = {
   y : paddle.y - BALL_RADIUS,
   radius : BALL_RADIUS,
   speed : 4,
-  dx : 3,
+  dx : 3 * (Math.random() * 2 - 1),
   dy : -3
 }
 
@@ -109,8 +109,26 @@ function ballWallCollision(){
 function resetBall(){
   ball.x = cvs.width/2;
   ball.y = paddle.y - BALL_RADIUS;
-  ball.dx = 3;
+  ball.dx = 3 * (Math.random() * 2 - 1);
   ball.dy = -3;
+}
+
+// ball and paddle collison
+function ballPaddleCollision(){
+   if(ball.x < paddle.x + paddle.width && ball.x > paddle.x && paddle.y < paddle.y + paddle.height && ball.y > paddle.y){
+
+     // check where the ball hit the paddle
+     let collidePoint = ball.x - (paddle.x + paddle.width/2);
+
+     // normalize the values
+     collidePoint = collidePoint / (paddle.width/2);
+
+     // claculate the angle of the ball
+     let angle = collidePoint * Math.PI/3;
+
+     ball.dx = ball.speed * Math.sin(angle);
+     ball.dy = - ball.speed * Math.cos(angle);
+   }
 }
 
 // draw function
@@ -124,6 +142,7 @@ function update(){
   movePaddle();
   moveBall();
   ballWallCollision();
+  ballPaddleCollision();
 }
 
 // game loop
