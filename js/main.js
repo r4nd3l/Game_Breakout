@@ -13,6 +13,7 @@ const PADDLE_WIDTH = 100;
 const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
 const BALL_RADIUS = 8;
+let LIFE = 3; // default lives
 let leftArrow = false;
 let rightArrow = false;
 
@@ -90,9 +91,26 @@ function movePaddle(){
 }
 // ball and wall collision detection
 function ballWallCollision(){
-  if(ball.x + ball.radius > cvs.width){
+  if(ball.x + ball.radius > cvs.width || ball.x - ball.radius < 0){
     ball.dx = - ball.dx;
   }
+
+  if(ball.y - ball.radius < 0){
+    ball.dy = - ball.dy;
+  }
+
+  if(ball.y + ball.radius > cvs.height){
+    LIFE--; // lose life
+    resetBall();
+  }
+}
+
+// reset the ball
+function resetBall(){
+  ball.x = cvs.width/2;
+  ball.y = paddle.y - BALL_RADIUS;
+  ball.dx = 3;
+  ball.dy = -3;
 }
 
 // draw function
