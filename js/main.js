@@ -14,6 +14,8 @@ const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
 const BALL_RADIUS = 8;
 let LIFE = 3; // default lives
+let SCORE = 0;
+const SCORE_UNIT = 10;
 let leftArrow = false;
 let rightArrow = false;
 
@@ -178,6 +180,23 @@ function drawBricks(){
   }
 }
 
+// ball bricks collision
+function ballBrickCollision(){
+  for(let r = 0; r < brick.row; r++){
+    for(let c = 0; c < brick.column; c++){
+      let b = bricks[r][c];
+      // if the bricks are not broken
+      if(b.status){
+        if(ball.x + ball.radius > b.x && ball.x - ball.radius < b.x + brick.width && ball.y + ball.radius > b.y && ball.y - ball.radius < b.y + brick.height){
+          ball.dy = - ball.dy;
+          b.status = false; // the brick is broken
+          SCORE += SCORE_UNIT;
+        }
+      }
+    }
+  }
+}
+
 // draw function
 function draw(){
   drawPaddle();
@@ -191,6 +210,7 @@ function update(){
   moveBall();
   ballWallCollision();
   ballPaddleCollision();
+  ballBrickCollision();
 }
 
 // game loop
