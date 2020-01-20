@@ -132,27 +132,47 @@ function ballPaddleCollision(){
 }
 
 // create the bricks
-const bricks = {
+const brick = {
   row : 3,
   column : 5,
   width : 55,
+  height : 20,
   offSetLeft : 20,
   offSetTop : 20,
   marginTop : 40,
   fillColor : "#2e3548",
-  strokecolor : "#fff"
+  strokeColor : "#fff"
 }
 
-let bricks = []
+let bricks = [];
 
 function createBricks(){
-  for(let r = 0; r < bricks.row; r++){
+  for(let r = 0; r < brick.row; r++){
     bricks[r] = [];
-    for(let c = 0; c < bricks.column; c++){
+    for(let c = 0; c < brick.column; c++){
       bricks[r][c] = {
-        x : c * (bricks.offSetLeft + bricks.width) + bricks.offSetLeft,
-        y : r * (bricks.offSetTop + bricks.height) + bricks.offSetTop + bricks.marginTop,
+        x : c * (brick.offSetLeft + brick.width) + brick.offSetLeft,
+        y : r * (brick.offSetTop + brick.height) + brick.offSetTop + brick.marginTop,
         status : true
+      }
+    }
+  }
+}
+
+createBricks();
+
+// draw the bricks
+function drawBricks(){
+  for(let r = 0; r < brick.row; r++){
+    for(let c = 0; c < brick.column; c++){
+      let b = bricks[r][c];
+      // if the bricks are not broken
+      if(b.status){
+        ctx.fillStyle = brick.fillColor;
+        ctx.fillRect(b.x, b.y, brick.width, brick.height);
+
+        ctx.strokeStyle = brick.strokeColor;
+        ctx.strokeRect(b.x, b.y, brick.width, brick.height);
       }
     }
   }
@@ -162,6 +182,7 @@ function createBricks(){
 function draw(){
   drawPaddle();
   drawBall();
+  drawBricks();
 }
 
 // update game function
