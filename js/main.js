@@ -131,6 +131,33 @@ function ballPaddleCollision(){
    }
 }
 
+// create the bricks
+const bricks = {
+  row : 3,
+  column : 5,
+  width : 55,
+  offSetLeft : 20,
+  offSetTop : 20,
+  marginTop : 40,
+  fillColor : "#2e3548",
+  strokecolor : "#fff"
+}
+
+let bricks = []
+
+function createBricks(){
+  for(let r = 0; r < bricks.row; r++){
+    bricks[r] = [];
+    for(let c = 0; c < bricks.column; c++){
+      bricks[r][c] = {
+        x : c * (bricks.offSetLeft + bricks.width) + bricks.offSetLeft,
+        y : r * (bricks.offSetTop + bricks.height) + bricks.offSetTop + bricks.marginTop,
+        status : true
+      }
+    }
+  }
+}
+
 // draw function
 function draw(){
   drawPaddle();
@@ -157,7 +184,6 @@ function loop(){
   requestAnimationFrame(loop);
 }
 loop();
-
 
 
 
