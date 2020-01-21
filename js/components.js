@@ -21,3 +21,23 @@ const SCORE_IMG = new Image();
 SCORE_IMG.src = "img/score.svg";
 SCORE_IMG.src.width = 128;
 SCORE_IMG.src.height = 128;
+
+// ball hit the wall
+const WALL_HIT = new Audio();
+WALL_HIT.src = "sfx/wallHit.mp3";
+
+// ball hit the wall
+const LIFE_LOST = new Audio();
+LIFE_LOST.src = "sfx/ballBuzz.mp3";
+
+// ball hit the wall
+const PADDLE_HIT = new Audio();
+PADDLE_HIT.src = "sfx/paddleHit.mp3";
+
+// ball hit the wall
+const WIN = new Audio();
+WIN.src = "sfx/win.mp3";
+
+// ball hit the wall
+const BRICK_HIT = new Audio();
+BRICK_HIT.src = "sfx/brickHit.mp3";
