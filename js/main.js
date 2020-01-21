@@ -12,10 +12,19 @@ cvs.style.border = "1px solid #0ff";
 const PADDLE_WIDTH = 100;
 const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
+
 const BALL_RADIUS = 8;
+
 let LIFE = 3; // default lives
+
 let SCORE = 0;
 const SCORE_UNIT = 10;
+
+let LEVEL = 1;
+const MAX_LEVEL = 3;
+
+let GAME_OVER = false;
+
 let leftArrow = false;
 let rightArrow = false;
 
@@ -135,7 +144,7 @@ function ballPaddleCollision(){
 
 // create the bricks
 const brick = {
-  row : 3,
+  row : 1,
   column : 5,
   width : 55,
   height : 20,
@@ -197,11 +206,61 @@ function ballBrickCollision(){
   }
 }
 
+// show game stats
+function showGameStats(text, textX, textY, img, imgX, imgY){
+  // draw text
+  ctx.fillStyle = "#FFF";
+  ctx.font = "25px Arial";
+  ctx.fillText(text, textX, textY);
+
+  // draw image
+  ctx.drawImage(img, imgX, imgY, width = 25, height = 25);
+}
+
 // draw function
 function draw(){
   drawPaddle();
   drawBall();
   drawBricks();
+
+  // show score
+  showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5)
+
+  // show lives
+  showGameStats(LIFE, cvs.width - 25, 25, LIFE_IMG, cvs.width - 55, 5)
+
+  // show levels
+  showGameStats(LEVEL, cvs.width/2, 25, LEVEL_IMG, cvs.width/2 - 30, 5)
+}
+
+// game over
+function gameOver(){
+  if(LIFE <= 0){
+    GAME_OVER = true;
+  }
+}
+
+// level up
+function levelUp(){
+  let isLevelDone = true;
+
+  // check if all the bricks are broken
+  for(let r = 0; r < brick.row; r++){
+    for(let c = 0; c < brick.column; c++){
+      isLevelDone = isLevelDone && ! bricks[r][c].status;
+    }
+  }
+  if(isLevelDone){
+    if(LEVEL >= MAX_LEVEL){
+      GAME_OVER = true;
+      return;
+    }
+    brick.row++;
+    createBricks();
+    ball.speed += 0.5;
+    resetBall();
+    LEVEL++;
+  }
 }
 
 // update game function
@@ -211,6 +270,8 @@ function update(){
   ballWallCollision();
   ballPaddleCollision();
   ballBrickCollision();
+  gameOver();
+  levelUp();
 }
 
 // game loop
@@ -222,10 +283,11 @@ function loop(){
 
   update();
 
-  requestAnimationFrame(loop);
+  if(! GAME_OVER){
+    requestAnimationFrame(loop);
+  }
 }
 loop();
-
 
 
 
