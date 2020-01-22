@@ -64,7 +64,6 @@ body{
 }
 
 #youLose{
-  width: 400px;
   position: absolute;
   top: 0px;
   display: none;
