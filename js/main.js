@@ -243,6 +243,7 @@ function draw(){
 // game over
 function gameOver(){
   if(LIFE <= 0){
+    showYouLose();
     GAME_OVER = true;
   }
 }
@@ -260,6 +261,7 @@ function levelUp(){
   if(isLevelDone){
     WIN.play();
     if(LEVEL >= MAX_LEVEL){
+      showYouWin();
       GAME_OVER = true;
       return;
     }
@@ -317,7 +319,28 @@ function soundSwitch(){
   LIFE_LOST.muted = LIFE_LOST.muted ? false : true;
 }
 
+// game over message
+const gameover = document.getElementById("gameover");
+const youwon = document.getElementById("youWin");
+const youlose = document.getElementById("youLose");
+const restart = document.getElementById("restart");
 
+// click on play again button
+restart.addEventListener("click", function(){
+  location.reload(); // reload the page
+});
+
+// win
+function showYouWin(){
+  gameover.style.display = "block";
+  youwon.style.display = "block";
+}
+
+// lose
+function showYouLose(){
+  gameover.style.display = "block";
+  youlose.style.display = "block";
+}
 
 
 
