@@ -6,7 +6,7 @@ const ctx = cvs.getContext("2d");
 cvs.style.border = "1px solid #0ff";
 
 // make the line a little bit more thick
-cvs.style.border = "1px solid #0ff";
+ctx.lineWidth = 3;
 
 // game vars and const
 const PADDLE_WIDTH = 100;
@@ -52,10 +52,10 @@ function drawBall(){
   ctx.beginPath();
 
   ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2);
-  ctx.fillStyle = "#ffcd05";
+  ctx.fillStyle = "#051830";
   ctx.fill();
 
-  ctx.strokeStyle = "#2e3548";
+  ctx.strokeStyle = "#fff";
   ctx.stroke();
 
   ctx.closePath();
@@ -69,10 +69,10 @@ function moveBall(){
 
 // draw paddle
 function drawPaddle(){
-  ctx.fillStyle = "#2e3548";
+  ctx.fillStyle = "#051830";
   ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
 
-  ctx.strokeStyle = "#ffcd05";
+  ctx.strokeStyle = "#fff";
   ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
 }
 
@@ -157,8 +157,8 @@ const brick = {
   offSetLeft : 20,
   offSetTop : 20,
   marginTop : 40,
-  fillColor : "#2e3548",
-  strokeColor : "#fff"
+  fillColor : "#051830",
+  strokeColor : "#3082ed"
 }
 
 let bricks = [];
@@ -216,7 +216,7 @@ function ballBrickCollision(){
 // show game stats
 function showGameStats(text, textX, textY, img, imgX, imgY){
   // draw text
-  ctx.fillStyle = "#FFF";
+  ctx.fillStyle = "#ccc";
   ctx.font = "25px retro_computer_personal_use";
   ctx.fillText(text, textX, textY);
 

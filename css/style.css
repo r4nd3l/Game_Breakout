@@ -54,7 +54,7 @@ body{
   height: 500px;
   background: rgba(0, 0, 0, 0.9);
   display: none;
-  color: white;
+  color: #ccc;
 }
 
 #youWon,
@@ -67,6 +67,7 @@ body{
   right: 0;
   bottom: auto;
   display: none;
+  color: #3082ed;
 }
 
 #restart{
