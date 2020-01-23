@@ -25,19 +25,24 @@ SCORE_IMG.src.height = 128;
 // ball hit the wall
 const WALL_HIT = new Audio();
 WALL_HIT.src = "sfx/wallHit.mp3";
+WALL_HIT.volume = 0.1;
 
 // ball hit the wall
 const LIFE_LOST = new Audio();
 LIFE_LOST.src = "sfx/ballBuzz.mp3";
+LIFE_LOST.volume = 0.1;
 
 // ball hit the wall
 const PADDLE_HIT = new Audio();
 PADDLE_HIT.src = "sfx/paddleHit.mp3";
+PADDLE_HIT.volume = 0.1;
 
 // ball hit the wall
 const WIN = new Audio();
 WIN.src = "sfx/win.mp3";
+WIN.volume = 0.1;
 
 // ball hit the wall
 const BRICK_HIT = new Audio();
 BRICK_HIT.src = "sfx/brickHit.mp3";
+BRICK_HIT.volume = 0.1;
