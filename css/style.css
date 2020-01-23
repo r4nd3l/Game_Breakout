@@ -36,6 +36,7 @@ body{
   height: 100vh;
   margin: 0;
   padding: 0;
+  font-family: 'retro_computer_personal_use';
 }
 
 #sound{
@@ -51,31 +52,32 @@ body{
   position: absolute;
   width: 400px;
   height: 500px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   display: none;
+  color: white;
 }
 
-#youWon{
-  width: 100px;
+#youWon,
+#youLose{
+  font-size: 2em;
   position: absolute;
   top: 200px;
-  left: 150px;
-  display: none;
-}
-
-#youLose{
-  position: absolute;
-  top: 0px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: auto;
   display: none;
 }
 
 #restart{
   position: absolute;
-  top: 310px;
-  left: 155px;
+  top: 300px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: auto;
   cursor: pointer;
-  font-size: 1.25em;
-  color: #fff;
+  font-size: 1.2em;
 }
 
 

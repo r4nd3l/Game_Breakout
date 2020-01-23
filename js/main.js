@@ -217,7 +217,7 @@ function ballBrickCollision(){
 function showGameStats(text, textX, textY, img, imgX, imgY){
   // draw text
   ctx.fillStyle = "#FFF";
-  ctx.font = "25px Arial";
+  ctx.font = "25px retro_computer_personal_use";
   ctx.fillText(text, textX, textY);
 
   // draw image
@@ -321,7 +321,7 @@ function soundSwitch(){
 
 // game over message
 const gameover = document.getElementById("gameover");
-const youwon = document.getElementById("youWin");
+const youwon = document.getElementById("youWon");
 const youlose = document.getElementById("youLose");
 const restart = document.getElementById("restart");
 
