@@ -286,6 +286,7 @@ function update(){
 
 // game loop
 function loop(){
+
   // clear the canvas
   ctx.drawImage(BG_IMG, 0, 0);
 

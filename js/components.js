@@ -8,7 +8,6 @@ LEVEL_IMG.src = "img/level.svg";
 LEVEL_IMG.src.width = 128;
 LEVEL_IMG.src.height = 128;
 
-
 // load life img
 const LIFE_IMG = new Image();
 LIFE_IMG.src = "img/life.svg";
@@ -46,3 +45,5 @@ WIN.volume = 0.1;
 const BRICK_HIT = new Audio();
 BRICK_HIT.src = "sfx/brickHit.mp3";
 BRICK_HIT.volume = 0.1;
+
+
