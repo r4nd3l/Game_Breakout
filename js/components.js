@@ -45,5 +45,3 @@ WIN.volume = 0.1;
 const BRICK_HIT = new Audio();
 BRICK_HIT.src = "sfx/brickHit.mp3";
 BRICK_HIT.volume = 0.1;
-
-
