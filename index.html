@@ -16,27 +16,29 @@
 </head>
 <body>
 
-  <div class="sound">
-    <img src="img/sound_on.svg" id="sound" alt="souns button">
-  </div>
-
-  <div id="gameover">
-    <span alt="you won" id="youWon"><i class="fas fa-trophy fa-2x"></i>Victory!</span>
-    <span alt="game over" id="youLose">Game over</span>
-    <div id="restart">Play again!</div>
-  </div>
-
-  <canvas id="breakout" width="400" height="500"></canvas>
-
-  <section>
-    <div class="table">
-      <h4>Use your arrow keys to navigate the pieces</h4>
-      <span>
-        <p><kbd>&larr;</kbd></p>
-        <p><kbd>&rarr;</kbd></p>
-      </span>
+  <div class="center">
+    <div class="sound">
+      <img src="img/sound_on.svg" id="sound" alt="souns button">
     </div>
-  </section>
+
+    <div id="gameover">
+      <span alt="you won" id="youWon"><i class="fas fa-trophy fa-2x"></i>Victory!</span>
+      <span alt="game over" id="youLose">Game over</span>
+      <div id="restart">Play again!</div>
+    </div>
+
+    <canvas id="breakout" width="400" height="500"></canvas>
+
+    <section>
+      <div class="table">
+        <h4>Use your arrow keys to navigate the padle</h4>
+        <span>
+          <p><kbd>&larr;</kbd></p>
+          <p><kbd>&rarr;</kbd></p>
+        </span>
+      </div>
+    </section>
+  </div>
 
   <script src="js/components.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
