@@ -35,17 +35,19 @@ body{
   /* text-align: center; */
   overflow-y: scroll;
   height: 100vh;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: 'retro_computer_personal_use';
 }
 
 .center{
-  margin: auto;
-  width: 50vw;
+  /* margin: 0 auto; */
+  /* position: absolute; */
 }
-#sound, #gameover, #breakout{
-  /* margin: 0 1.25em; */
+#breakout{
+  position: absolute;
+  left: 50%;
+  margin: 0 0 0 -200px;
 }
 
 #sound{
@@ -64,7 +66,9 @@ body{
   background: rgba(0, 0, 0, 0.9);
   display: none;
   color: #ccc;
-  /* margin: 0 auto; */
+  margin: 0 0 0 -200px;
+  left: 50%;
+  z-index: 1;
 }
 
 #youWon,
