@@ -80,15 +80,23 @@ function drawPaddle(){
 document.addEventListener("keydown", function(event){
   if(event.keyCode == 37){
     leftArrow = true;
+    document.getElementsByTagName("kbd")[0].style.cssText = "border:1px solid var(--lg-); color: #ffa502;"
+    document.querySelectorAll(".table p")[0].style.cssText = "box-shadow: 0 0 15px #d35400; text-shadow: 0 0 15px #d35400;"
   }else if(event.keyCode == 39){
     rightArrow = true;
+    document.getElementsByTagName("kbd")[1].style.cssText = "border:1px solid var(--lg-); color: #ffa502;"
+    document.querySelectorAll(".table p")[1].style.cssText = "box-shadow: 0 0 15px #d35400; text-shadow: 0 0 15px #d35400;"
   }
 });
 document.addEventListener("keyup", function(event){
   if(event.keyCode == 37){
     leftArrow = false;
+    document.getElementsByTagName("kbd")[0].style.cssText = "border:1px solid grey; color: var(--gr-);"
+    document.querySelectorAll(".table p")[0].style.cssText = "box-shadow: none; text-shadow: none;"
   }else if(event.keyCode == 39){
     rightArrow = false;
+    document.getElementsByTagName("kbd")[1].style.cssText = "border:1px solid grey; color: var(--gr-);"
+    document.querySelectorAll(".table p")[1].style.cssText = "box-shadow: none; text-shadow: none;"
   }
 });
 
