@@ -39,11 +39,6 @@ body{
   padding: 0;
   font-family: 'retro_computer_personal_use';
 }
-
-.center{
-  /* margin: 0 auto; */
-  /* position: absolute; */
-}
 #breakout{
   position: absolute;
   left: 50%;
@@ -56,7 +51,9 @@ body{
   cursor: pointer;
   position: relative;
   top: 490px;
-  left: 15px;
+  left: 50%;
+  margin: 0px 0 0 -180px;
+  z-index: 1;
 }
 
 #gameover{
@@ -66,7 +63,7 @@ body{
   background: rgba(0, 0, 0, 0.9);
   display: none;
   color: #ccc;
-  margin: 0 0 0 -200px;
+  margin: 1px 0 0 -199px;
   left: 50%;
   z-index: 1;
 }
@@ -98,9 +95,13 @@ body{
 /* Controls */
 
 section{
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  top: 550px;
+  left: 0;
 }
 
 .table{
