@@ -100,11 +100,17 @@ document.addEventListener("keyup", function(event){
   }
 });
 
-// click event - Mobile version
+// click event - mouse version
 function mouseDown_0(){ leftArrow = true; rightArrow = false;}
 function mouseUp_0(){ rightArrow = false; leftArrow = false;}
 function mouseDown_1(){ rightArrow = true; leftArrow = false;}
 function mouseUp_1(){ rightArrow = false; leftArrow = false;}
+
+// click event - mobile version
+function touchStart_0(){ leftArrow = true; rightArrow = false;}
+function touchEnd_0(){ rightArrow = false; leftArrow = false;}
+function touchStart_1(){ rightArrow = true; leftArrow = false;}
+function touchEnd_1(){ rightArrow = false; leftArrow = false;}
 
 // move paddle
 function movePaddle(){
