@@ -100,6 +100,20 @@ document.addEventListener("keyup", function(event){
   }
 });
 
+// click event - Mobile version
+let kbd_0 = document.getElementsByTagName("kbd")[0];
+kbd_0.addEventListener("click", function(event){
+  leftArrow = true;
+  rightArrow = false;
+});
+
+let kbd_1 = document.getElementsByTagName("kbd")[1];
+kbd_1.addEventListener("click", function(event){
+  rightArrow = true;
+  leftArrow = false;
+});
+
+
 // move paddle
 function movePaddle(){
   if(rightArrow && paddle.x + paddle.width < cvs.width){
