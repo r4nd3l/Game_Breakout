@@ -101,18 +101,10 @@ document.addEventListener("keyup", function(event){
 });
 
 // click event - Mobile version
-let kbd_0 = document.getElementsByTagName("kbd")[0];
-kbd_0.addEventListener("click", function(event){
-  leftArrow = true;
-  rightArrow = false;
-});
-
-let kbd_1 = document.getElementsByTagName("kbd")[1];
-kbd_1.addEventListener("click", function(event){
-  rightArrow = true;
-  leftArrow = false;
-});
-
+function mouseDown_0(){ leftArrow = true; rightArrow = false;}
+function mouseUp_0(){ rightArrow = false; leftArrow = false;}
+function mouseDown_1(){ rightArrow = true; leftArrow = false;}
+function mouseUp_1(){ rightArrow = false; leftArrow = false;}
 
 // move paddle
 function movePaddle(){
